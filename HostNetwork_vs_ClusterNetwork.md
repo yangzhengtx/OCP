@@ -82,3 +82,14 @@ bash-4.4$ ip addr
 
 The individual cluster network namespace is assigned for this pod.
 ```
+
+## List listening ports in Pod
+
+```
+# netstat -an
+
+# ss -an
+
+# lsof -nP -iTCP
+
+```
