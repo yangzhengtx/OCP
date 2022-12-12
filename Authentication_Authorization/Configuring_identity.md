@@ -1,7 +1,7 @@
-# HTPasswd
+# Configuring identity providers
 OpenShift OAuth server can be configured to use many identity providers, like HTPasswd.
 
-## Configuring the HTPasswd Identity Provider
+## HTPasswd
 Create new user and credential by HTPasswd:
 ```diff
 # htpasswd -c -B -b /tmp/htpasswd user1 redhat123
