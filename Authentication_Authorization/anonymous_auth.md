@@ -1,6 +1,6 @@
-# Auth in Kubernetes
+# Anonymous user
 
-Creating normal user
+The system:anonymous user is enabled by default.
 
 
 ## Disable unauthenticated user
