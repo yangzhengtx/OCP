@@ -9,7 +9,11 @@ Authentication and authorization are the two security layers responsible for ena
 
 The OpenShift API has two methods for authenticating requests:
 - OAuth Access Tokens
+  - The API server reads bearer tokens from a file when given the --token-auth-file=SOMEFILE option on the command line. Currently, tokens last indefinitely, and the token list cannot be changed without restarting the API server.
+  
 - X.509 Client Certificates
+  - Client certificate authentication is enabled by passing the --client-ca-file=SOMEFILE option to API server. The referenced file must contain one or more certificate authorities to use to validate client certificates presented to the API server. If a client certificate is presented and verified, the common name of the subject is used as the user name for the request. As of Kubernetes 1.4, client certificates can also indicate a user's group memberships using the certificate's organization fields. To include multiple group memberships for a user, include multiple organization fields in the certificate.
+
 
 The OpenShift Container Platform provides the Authentication operator, which runs an OAuth server. The OAuth server provides OAuth access tokens to users when they attempt to authenticate to the API. An identity provider must be configured and available to the OAuth server. The OAuth server uses an identity provider to validate the identity of the requester. The server reconciles the user with the identity and creates the OAuth access token for the user. OpenShift automatically creates identity and user resources after a successful login.
 
