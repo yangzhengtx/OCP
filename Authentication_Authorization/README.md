@@ -3,6 +3,7 @@ For users to interact with OpenShift Container Platform, they must first authent
 Authentication and authorization are the two security layers responsible for enabling user interaction with the cluster. When a user makes a request to the API, the API associates the user with the request. The authentication layer authenticates the user. Upon successful authentication, the authorization layer decides to either honor or reject the API request. The authorization layer uses role-based access control (RBAC) policies to determine user privileges.
 
 # Authentication
+OCP doesn't store user credentials, instead OCP internal OAuth server uses the configured identity provider to determine the identity of the person making the request. Once the user is allowed to login OCP, OAuth server provides access tokens to authenticate users to the API.
 - Configuring an identity provider:
 - Configuring the internal OAuth Server:
 
@@ -10,6 +11,7 @@ Authentication and authorization are the two security layers responsible for ena
 The OpenShift API has two methods for authenticating requests:
 - OAuth Access Tokens
   - The API server reads bearer tokens from a file when given the --token-auth-file=SOMEFILE option on the command line. Currently, tokens last indefinitely, and the token list cannot be changed without restarting the API server.
+  - When a person requests a new OAuth token, the OAuth server uses the configured identity provider to determine the identity of the person making the request.It then determines what user that identity maps to, creates an access token for that user, and returns the token for use.
   
 - X.509 Client Certificates
   - Client certificate authentication is enabled by passing the --client-ca-file=SOMEFILE option to API server. The referenced file must contain one or more certificate authorities to use to validate client certificates presented to the API server. If a client certificate is presented and verified, the common name of the subject is used as the user name for the request. As of Kubernetes 1.4, client certificates can also indicate a user's group memberships using the certificate's organization fields. To include multiple group memberships for a user, include multiple organization fields in the certificate.
