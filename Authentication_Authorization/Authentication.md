@@ -52,3 +52,15 @@ users:
     token: sha256~4fU2xrpbFcC8V_ccsRqrn86vz6g55kWR0W2Y_lRWwrA
 
 ```
+
+
+## Login OCP as user managed by HTPasswd
+
+
+## Access OCP API with ServiceAccount Token
+
+
+## Login OCP with X.509 certificates
+
+
+## 
