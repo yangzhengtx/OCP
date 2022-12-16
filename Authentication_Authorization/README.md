@@ -27,4 +27,5 @@ The OpenShift Container Platform provides the Authentication operator, which run
 
 
 Reference:
-https://docs.openshift.com/container-platform/4.10/authentication/index.html
+- > https://docs.openshift.com/container-platform/4.10/authentication/index.html
+- > https://learnk8s.io/authentication-kubernetes
